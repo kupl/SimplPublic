@@ -20,7 +20,8 @@ To use Simpl, you need to provide:
 
 Then, Simpl will output the complete program whose behaviour matches all the given input-output examples
 by filling in the holes of the partial program.
-For more informations, please refer to the following link:
+For example, type ```./main.native -input benchmarks/no1_factorial``` to produce the complete factorial function.
+For more information, please refer to the following link:
 https://arxiv.org/abs/1702.06334
 
 ## Question
