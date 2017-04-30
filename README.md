@@ -7,10 +7,10 @@ to efficiently generate the programs. This is co-work with
 Prof.Hakjoo Oh in Korea University (http://prl.korea.ac.kr). 
 
 ## How to build
-After you clone this project, type ```chmod +x build''', and then type ```./build'''.
+After you clone this project, type ```chmod +x build```, and then type ```./build```.
 -   Clone this project.
--   Activate the build script: ```chmod +x build'''.
--   Then, you can complie the whole files: ```./build'''.
+-   Activate the build script: ```chmod +x build```.
+-   Then, you can complie the whole files: ```./build```.
 
 ## How to use
 To use Simpl, you need to provide:
