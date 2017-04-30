@@ -1,0 +1,22 @@
+(* Find the sum of squares of each element. *)
+Examples
+{1,2},2 -> 5;
+{2,3,4},3 -> 29;
+
+Partial Program
+fun arr, len ->
+r = 0;
+i = 0;
+while (?){
+   ?; 
+}
+return r;
+
+Int Comps
+0,1
+
+Int Var Comps
+i,r,len
+
+Array Var Comps
+arr

@@ -1,0 +1,24 @@
+(* returns sum of absolute value of each element *) 
+Examples
+{-1,-2}, 2 -> 3;
+{2,3,-4}, 3 -> 9;
+
+Partial Program
+fun arr, len ->
+r = 0;
+i = 0;
+while (i<len){
+    if(?){?}
+    else{?};
+    i=i+1;
+}
+return r;
+
+Int Comps
+0
+
+Int Var Comps
+r,i
+
+Array Var Comps
+arr

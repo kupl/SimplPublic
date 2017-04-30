@@ -1,0 +1,22 @@
+(* Multiply two arrays of same length into one array *) 
+Examples
+{1,2,3}, {1,2,3} ,3 -> {1,4,9};
+{1,2,3}, {2,3,4}, 3 -> {2,6,12};
+
+Partial Program
+fun arr1, arr2, len ->
+i=0;
+while (?){
+    ?;
+}
+
+return arr1;
+
+Int Comps
+0,1
+
+Int Var Comps
+i,len,t
+
+Array Var Comps
+arr1,arr2

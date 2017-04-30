@@ -1,0 +1,21 @@
+(* number frequency of each digit *) 
+Examples
+11, {0,0} -> {0,2};
+220, {0,0,0} -> {1,0,2};
+
+Partial Program
+fun n, arr ->
+while (?){
+    ?;
+}
+
+return arr;
+
+Int Comps
+0,1,10
+
+Int Var Comps
+i,n,t
+
+Array Var Comps
+arr

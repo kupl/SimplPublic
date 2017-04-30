@@ -1,0 +1,22 @@
+(* accepts array and its length, returns sum of each element *)
+Examples
+{1,2}, 2 -> 3;
+{2,3,4}, 3 -> 9;
+
+Partial Program
+fun arr, len ->
+r = 0;
+i=0;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1
+
+Int Var Comps
+r,i,len
+
+Array Var Comps
+arr

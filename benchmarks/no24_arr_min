@@ -1,0 +1,23 @@
+(* returns min value among every array element *)
+Examples
+{1,-2,-3}, 3 -> -3;
+{10,31,7,37,100}, 5 -> 7;
+
+Partial Program
+fun arr, len ->
+i = 0;
+min = arr[i];
+while (i<len){
+    if(?){?};
+    i=i+1;
+}
+return min;
+
+Int Comps
+0,1
+
+Int Var Comps
+min,i,len
+
+Array Var Comps
+arr

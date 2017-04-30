@@ -1,0 +1,22 @@
+(* n * (n+1) * (n+2) * ... * m *)
+Examples
+1,2 -> 2;
+2,4 -> 24;
+3,5 -> 60;
+
+Partial Program
+fun a,b ->
+r = b;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1
+
+Int Var Comps
+a,b,r
+
+Array Var Comps
+none

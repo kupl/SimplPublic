@@ -1,0 +1,23 @@
+(* accepts n, returns n * (n-2) * (n-4) * ... *)
+Examples
+0 -> 1;
+1 -> 1;
+2 -> 2;
+5 -> 15;
+
+Partial Program
+fun n ->
+r = 1;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1,2
+
+Int Var Comps
+r,n,t
+
+Array Var Comps
+none

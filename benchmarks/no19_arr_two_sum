@@ -1,0 +1,22 @@
+(* Sum two arrays of same length into one array *) 
+Examples
+{1,2,3}, {1,2,3} ,3 -> {2,4,6};
+{1,2,3}, {2,3,4}, 3 -> {3,5,7};
+
+Partial Program
+fun arr1, arr2, len ->
+i=0;
+while (?){
+    ?;
+}
+
+return arr1;
+
+Int Comps
+0,1
+
+Int Var Comps
+i,len,t
+
+Array Var Comps
+arr1,arr2

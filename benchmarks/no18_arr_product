@@ -1,0 +1,21 @@
+Examples
+{1,2}, 2  -> 2;
+{2,3,4}, 3 -> 24;
+
+Partial Program
+fun arr, len ->
+r = 1;
+i=0;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1
+
+Int Var Comps
+r,i,len
+
+Array Var Comps
+arr

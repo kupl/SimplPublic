@@ -1,0 +1,22 @@
+(* number of binary digits for given decimal number n *)
+Examples
+1 -> 1;
+5 -> 3;
+10 -> 4;
+
+Partial Program 
+fun n ->
+r = 1;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1,2
+
+Int Var Comps
+r,n
+
+Array Var Comps
+none

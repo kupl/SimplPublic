@@ -1,0 +1,25 @@
+(* Sume the products of matching elements of two arrays *) 
+
+Examples
+{1,2}, {3,4} , 2 -> 11;
+{1,2,3},{1,2,3},3 -> 14;
+{1,2,3},{2,3,4},3 -> 20;
+
+Partial Program
+fun arr1, arr2, len ->
+r = 0;
+i = 0;
+while (?){
+        ?;
+    i=i+1;
+}
+return r;
+
+Int Comps
+1
+
+Int Var Comps
+r,i,len
+
+Array Var Comps
+arr1,arr2
