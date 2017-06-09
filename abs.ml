@@ -17,12 +17,9 @@ module State = struct
 
   let add = BatMap.add
 
-  (*
   let find x s =
-    try BatMap.find x s with _ -> raise Not_found *)
-  let find x s =
-    try BatMap.find x s with _ -> (Itv.bot, Symbolic.bot)
-
+    try BatMap.find x s with _ -> raise Not_found 
+  
   let weak_add x v s =
     let (i1,s1) = find x s in 
     let (i2,s2) = v in
