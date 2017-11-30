@@ -157,17 +157,27 @@ let replace_a : pgm -> aexp -> aexp -> pgm
     | _ -> cmd
   in (args,(replace_a' cmd ah acandi),res)
 
+(* 2017.11.30. 
+   Logical, small error fix. 
+   It has very small impacts on the performance of the sas 2017 paper. *)
+
 let replace_b : pgm -> bexp -> bexp -> pgm 
 = fun (args,cmd,res) bh bcandi -> 
   let rec replace_b' : cmd -> bexp -> bexp -> cmd
   = fun cmd bh bcandi ->
     match cmd with
-    | If (b,c1,c2) when b = bh -> If (bcandi,c1,c2)
-    | If (b,c1,c2) -> If (b, replace_b' c1 bh bcandi, replace_b' c2 bh bcandi)
-    | While (b,c) when b = bh -> While (bcandi,c)
-    | While (b,c) -> While (b, replace_b' c bh bcandi)
+    | If (b,c1,c2) -> If (replace_b'' b bh bcandi, replace_b' c1 bh bcandi, replace_b' c2 bh bcandi)
+    | While (b,c) -> While (replace_b'' b bh bcandi, replace_b' c bh bcandi)
     | Seq (c1,c2) -> Seq (replace_b' c1 bh bcandi, replace_b' c2 bh bcandi)
     | _ -> cmd
+  and replace_b'' : bexp -> bexp -> bexp -> bexp
+  = fun bexp bh bcandi ->
+    match bexp with
+    | Not b -> replace_b'' b bh bcandi
+    | Or (b1,b2) -> Or (replace_b'' b1 bh bcandi, replace_b'' b2 bh bcandi)
+    | And (b1,b2) -> And (replace_b'' b1 bh bcandi, replace_b'' b2 bh bcandi)
+    | BHole n when bh = bexp -> bcandi
+    | _ -> bexp 
   in (args,(replace_b' cmd bh bcandi),res)
 
 let replace_c : pgm -> cmd -> cmd -> pgm 
@@ -303,7 +313,7 @@ let aholes : pgm -> aexp BatSet.t
 
 (* 2017.11.30. 
    Logical, small error fix. 
-   It has little impact on the performance of the sas 2017 paper. *)
+   It has very small impacts on the performance of the sas 2017 paper. *)
 
 let bholes : pgm -> bexp BatSet.t
 = fun (_,cmd,_) ->
