@@ -173,7 +173,7 @@ let replace_b : pgm -> bexp -> bexp -> pgm
   and replace_b'' : bexp -> bexp -> bexp -> bexp
   = fun bexp bh bcandi ->
     match bexp with
-    | Not b -> replace_b'' b bh bcandi
+    | Not b -> Not (replace_b'' b bh bcandi)
     | Or (b1,b2) -> Or (replace_b'' b1 bh bcandi, replace_b'' b2 bh bcandi)
     | And (b1,b2) -> And (replace_b'' b1 bh bcandi, replace_b'' b2 bh bcandi)
     | BHole n when bh = bexp -> bcandi
