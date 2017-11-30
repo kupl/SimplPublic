@@ -300,17 +300,27 @@ let aholes : pgm -> aexp BatSet.t
     | _ -> BatSet.empty
   in aholes' cmd
 
+
+(* 2017.11.30. 
+   Logical, small error fix. 
+   It has little impact on the performance of the sas 2017 paper. *)
+
 let bholes : pgm -> bexp BatSet.t
 = fun (_,cmd,_) ->
   let rec bholes' : cmd -> bexp BatSet.t
   = fun cmd ->
     match cmd with
-    | If (BHole n, c1,c2) -> BatSet.add (BHole n) (BatSet.union (bholes' c1) (bholes' c2))
-    | While (BHole n,c) ->  BatSet.add (BHole n) (bholes' c)
-    | While (_,c) -> bholes' c
-    | If (_,c1,c2) 
-    | Seq (c1,c2) -> BatSet.union (bholes' c1) (bholes' c2) 
-    | _ -> BatSet.empty
+    | Seq (c1,c2) -> BatSet.union (bholes' c1) (bholes' c2)
+    | If (b,c1,c2) -> BatSet.union (bholes'' b) (BatSet.union (bholes' c1) (bholes' c2)) 
+    | While (b,c) -> BatSet.union (bholes'' b) (bholes' c)
+    | _ -> BatSet.empty 
+  and bholes'' : bexp -> bexp BatSet.t
+  = fun bexp ->
+    match bexp with 
+    | Not b -> bholes'' b
+    | Or (b1,b2) | And (b1,b2) -> BatSet.union (bholes'' b1) (bholes'' b2)
+    | BHole _ -> BatSet.singleton bexp 
+    | _ -> BatSet.empty 
   in bholes' cmd
 
 let choles : pgm -> cmd BatSet.t
