@@ -68,10 +68,17 @@ module State = struct
       = fun e1 e2 ->
         match e1,e2 with
         | Some (k1, (itv1,sym1)),Some (k2, (itv2,sym2)) ->
-            if k1 = k2 && Itv.le itv1 itv2 && Symbolic.le sym1 sym2  
-              then loop (BatEnum.get enum1) (BatEnum.get enum2) 
-            else false 
-        | Some _,None -> false
+          if k1 = k2 && Itv.le itv1 itv2 && Symbolic.le sym1 sym2  
+            then loop (BatEnum.get enum1) (BatEnum.get enum2) else
+          if k1 < k2 
+            then 
+              if Itv.le itv1 Itv.Bot && Symbolic.le sym1 Symbolic.Bot then loop (BatEnum.get enum1) e2 else false
+          else (* k1 > k2 *)
+            loop e1 (BatEnum.get enum2)
+        | Some (_, (itv1,sym1)),None ->
+          if Itv.le itv1 Itv.Bot && Symbolic.le sym1 Symbolic.Bot  
+            then loop (BatEnum.get enum1) e2 
+          else false 
         | None,Some _ -> true
         | None,None -> true in
     loop (BatEnum.get enum1) (BatEnum.get enum2)
